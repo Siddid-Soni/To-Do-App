@@ -1,0 +1,88 @@
+# todo api
+# testUser eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzgyMzE3LCJpYXQiOjE2OTcyOTU5MTcsImp0aSI6ImJkMWE5NzgzYTE5YTQxYTBhYjYwZmZlNzBkOGU3YTU1IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ0ZXN0VXNlciJ9.H8wTyeCOGfIU5PsQtSbvg4M2buC-QTgsj01Lsqjhgxk
+# siddid eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzcxNDc5LCJpYXQiOjE2OTcyODUwNzksImp0aSI6IjY3NTQwMmE5MTY2OTQxNGFiYTdmMTg5MGJmMTNjOTc3IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaWRkaWQifQ.gCI3UCzQ9tvd4kUlPcoDi8B6X0Fq2s_RwwjgOhXG9pc
+
+###
+# @name task-list
+GET http://127.0.0.1:8000/api/task-list/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzcxNDc5LCJpYXQiOjE2OTcyODUwNzksImp0aSI6IjY3NTQwMmE5MTY2OTQxNGFiYTdmMTg5MGJmMTNjOTc3IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaWRkaWQifQ.gCI3UCzQ9tvd4kUlPcoDi8B6X0Fq2s_RwwjgOhXG9pc
+Content-Type: application/json
+###
+
+#@name task-detail
+GET http://127.0.0.1:8000/api/task-detail/1/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzcxNDc5LCJpYXQiOjE2OTcyODUwNzksImp0aSI6IjY3NTQwMmE5MTY2OTQxNGFiYTdmMTg5MGJmMTNjOTc3IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaWRkaWQifQ.gCI3UCzQ9tvd4kUlPcoDi8B6X0Fq2s_RwwjgOhXG9pc
+Content-Type: application/json
+###
+
+#@name task-create
+
+POST http://localhost:8000/api/task-create/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzgyMzE3LCJpYXQiOjE2OTcyOTU5MTcsImp0aSI6ImJkMWE5NzgzYTE5YTQxYTBhYjYwZmZlNzBkOGU3YTU1IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ0ZXN0VXNlciJ9.H8wTyeCOGfIU5PsQtSbvg4M2buC-QTgsj01Lsqjhgxk
+Content-Type: application/json
+
+{
+  "title": "test 6",
+  "description": "testing 6",
+  "deadline": "2023-10-14",
+  "reminder_time": "2023-10-14T11:52:38Z",
+  "completed": false,
+  "priority": "low"
+}
+
+###
+
+#@name task-update
+
+PUT http://localhost:8000/api/task-update/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzcxNDc5LCJpYXQiOjE2OTcyODUwNzksImp0aSI6IjY3NTQwMmE5MTY2OTQxNGFiYTdmMTg5MGJmMTNjOTc3IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaWRkaWQifQ.gCI3UCzQ9tvd4kUlPcoDi8B6X0Fq2s_RwwjgOhXG9pc
+Content-Type: application/json
+
+{
+  "title": "test 2",
+  "description": "testing 2",
+  "deadline": "2023-10-14",
+  "reminder_time": "2023-10-14T11:52:38Z",
+  "completed": false,
+  "priority": "low"
+}
+
+###
+
+#@name task-delete
+
+DELETE http://localhost:8000/api/task-delete/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzcxNDc5LCJpYXQiOjE2OTcyODUwNzksImp0aSI6IjY3NTQwMmE5MTY2OTQxNGFiYTdmMTg5MGJmMTNjOTc3IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaWRkaWQifQ.gCI3UCzQ9tvd4kUlPcoDi8B6X0Fq2s_RwwjgOhXG9pc
+Content-Type: application/json
+
+###
+
+#@name token
+POST http://localhost:8000/api/token/
+Content-Type: application/json
+
+{
+  "username": "testUser",
+  "password": "test@123"
+}
+
+###
+
+#@name token-refresh
+POST http://localhost:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNTA1OTA1NSwiaWF0IjoxNjk3MjgzMDU1LCJqdGkiOiIzZjgxMzY1YWIzMGU0MTg0YjJjNWMwNWUxZTFmMDhkYyIsInVzZXJfaWQiOjF9.GVKW34oOYo9oerMEU-ovTigQVBnS_-nbO3ubc63wVMI"
+}
+
+###
+POST http://localhost:8000/api/user/create/
+Content-Type: application/json
+
+{
+  "username": "newUser",
+  "email": "newuser@email.com",
+  "password": "test@123",
+  "password2": "test@123"
+}
