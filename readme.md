@@ -260,5 +260,32 @@ if password and password2 don't match:
 }
 ```
 
+## Installation
+
+```bash
+  pip install -r requirements.txt
+```
+
+### Run migrations
+
+```bash
+  python manage.py makemigrations
+  python manage.py migrate
+```
+### Create superuser
+
+```bash
+  python manage.py createsuperuser
+```
+
+### Run server
+
+```bash
+  python manage.py runserver
+```
+
+## Authors
+
+- [@Siddid Soni](https://github.com/Siddid-Soni/)
 
 
