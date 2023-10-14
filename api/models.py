@@ -11,7 +11,7 @@ class Task(models.Model):
     description = models.TextField(blank=True, null=True)
     deadline = models.DateField(blank=True, null=True)
     reminder_time = models.DateTimeField(blank=True, null=True)
-    completed = models.BooleanField(default=False, blank=True, null=True)
+    completed = models.BooleanField(default=False, blank=False, null=False)
     priority = models.CharField(max_length=6, blank=False, null=False, default='low')
 
     # make a sample json object for the above fields

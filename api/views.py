@@ -25,7 +25,6 @@ def apiOverview(request):
         'token refresh': '/token/refresh/',
 
         'create user': '/user/create/',
-        'update user': '/user/update/',
     }
 
     return Response(api_urls)
@@ -75,9 +74,13 @@ def taskDetail(request, pk):
 def taskCreate(request):
     user = request.user
     request.data['user'] = user.id
+
+    if request.data['priority'] not in ['low', 'medium', 'high']:
+        return Response('Invalid priority!')
+
     serializer = TaskSerializer(data=request.data)
 
-    if serializer.is_valid():
+    if serializer.is_valid(raise_exception=True):
         serializer.save()
 
     return Response(serializer.data)
@@ -92,6 +95,10 @@ def taskUpdate(request, pk):
     except Task.DoesNotExist:
         return Response('You are not authorized to update this task!')
     request.data['user'] = user.id
+
+    if request.data['priority'] not in ['low', 'medium', 'high']:
+        return Response('Invalid priority!')
+
     serializer = TaskSerializer(instance=task, data=request.data)
 
     if serializer.is_valid():
@@ -110,7 +117,7 @@ def taskDelete(request, pk):
 
     task.delete()
 
-    return Response('Item succsesfully delete!')
+    return Response('Item successfully delete!')
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
