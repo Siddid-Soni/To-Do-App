@@ -99,6 +99,13 @@ returns an access token and a refresh token in the following format
 }
 ```
 
+if the credentials are wrong:
+```json
+{
+  "detail": "No active account found with the given credentials"
+}
+```
+
 Note:
 - access token expires in 30 minutes
 - refresh token expires in 90 days
@@ -114,6 +121,23 @@ Body :
 |:----------|:---------|:----------------------------|
 | `refresh` | `string` | **Required**. refresh token |
 
+Usage:
+to generate new access and refresh token.
+when the access token is expired you will get following response:
+```json
+{
+  "detail": "Given token not valid for any token type",
+  "code": "token_not_valid",
+  "messages": [
+    {
+      "token_class": "AccessToken",
+      "token_type": "access",
+      "message": "Token is invalid or expired"
+    }
+  ]
+}
+```
+
 Response:
 Returns an access token with a new refresh token and the 90 days limit is reset.
 
@@ -121,6 +145,14 @@ Returns an access token with a new refresh token and the 90 days limit is reset.
 {
   "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MzEyNjgyLCJpYXQiOjE2OTczMTA1OTMsImp0aSI6IjRiYjkxZThkMGIzODRlMTI4ZTg4MGU4NDFlZTBmZTEzIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ0ZXN0VXNlciJ9.68jy8fr8y0n04y_WQxFygyt7u5JGzEfIxI31jKNOEo4",
   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNTA4Njg4MiwiaWF0IjoxNjk3MzEwODgyLCJqdGkiOiI5ZjkyZmFiZmQyNzU0ZWM3ODU0YmJhZjUyNzg5Nzk0NyIsInVzZXJfaWQiOjIsInVzZXJuYW1lIjoidGVzdFVzZXIifQ.yVxgC0v-6-2AESGl_RTzKgsi0lVGme_Cekhvr4MNJgg"
+}
+```
+
+if the refresh token is expired (need to login again):
+```json
+{
+  "detail": "Token is invalid or expired",
+  "code": "token_not_valid"
 }
 ```
 Note:
