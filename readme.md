@@ -316,7 +316,12 @@ Response:
 "Item successfully delete!"
 ```
 
-
+#### Admin panel
+```
+/admin/
+```
+login with superuser.
+it is not api, it is a user interface.
 
 
 
